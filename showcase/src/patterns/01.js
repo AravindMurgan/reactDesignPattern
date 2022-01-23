@@ -32,65 +32,65 @@ const WithClapAnimation = (WrappedComponent) => {
       });
 
       const countTotalAnimation = new mojs.Html({
-        el:'#totalCountAnimation',
-        opacity:{0:1},
-        duation:Duration,
-        delay:(3* Duration)/2,
-        y:{0:-3}
+        el: '#totalCountAnimation',
+        opacity: { 0: 1 },
+        duation: Duration,
+        delay: (3 * Duration) / 2,
+        y: { 0: -3 }
 
 
       });
 
       const countAnimation = new mojs.Html({
-        el:'#countAnimation',
-        opacity:{0:1},
-        duation:Duration,
-        delay:(3* Duration)/2,
-        y:{0:-35}
+        el: '#countAnimation',
+        opacity: { 0: 1 },
+        duation: Duration,
+        delay: (3 * Duration) / 2,
+        y: { 0: -35 }
 
 
       }).then({
-        opacity:{1:0},
-        y:-80,
-        delay:Duration/2
+        opacity: { 1: 0 },
+        y: -80,
+        delay: Duration / 2
 
       });
 
-      const triangleBurst =new mojs.Burst({
-        parent:'#clap',
-        radius:{50:95},
-        count:5,
-        children:{
-          shape:'polygon',
-          radius:{6:0},
-          stroke:'rgba(211,54,0,0.5)',
-          strokewidth:2,
-          angle:210,
-          delay:30,
-          speed:0.2,
-          easing:mojs.easing.bezier(0.1,1,0.3,1),
-          duration:Duration,
+      const triangleBurst = new mojs.Burst({
+        parent: '#clap',
+        radius: { 50: 95 },
+        count: 5,
+        children: {
+          shape: 'polygon',
+          radius: { 6: 0 },
+          stroke: 'rgba(211,54,0,0.5)',
+          strokewidth: 2,
+          angle: 210,
+          delay: 30,
+          speed: 0.2,
+          easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
+          duration: Duration,
 
         }
       });
 
-      const circleBurst= new mojs.Burst({
-        parent:'#clap',
-        radius:{50:75},
-        angle:25,
-        duration:Duration,
-        children:{
-          shape:'circle',
-          fill:'rgba(149,165,166,0.5)',
-          delay:30,
-          speed:0.2,
-          radius:{3:0},
-          easing:mojs.easing.bezier(0.1,1,0.3,1)
+      const circleBurst = new mojs.Burst({
+        parent: '#clap',
+        radius: { 50: 75 },
+        angle: 25,
+        duration: Duration,
+        children: {
+          shape: 'circle',
+          fill: 'rgba(149,165,166,0.5)',
+          delay: 30,
+          speed: 0.2,
+          radius: { 3: 0 },
+          easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
         }
       })
 
       const scale = document.getElementById('clap');
-      scale.style.transform = 'scale(1,1)'; 
+      scale.style.transform = 'scale(1,1)';
 
       const newAnimationTimeline = this.animationTimeline.add([scaleButton,
         countTotalAnimation,
@@ -98,7 +98,7 @@ const WithClapAnimation = (WrappedComponent) => {
         triangleBurst,
         circleBurst]);
       this.setState({
-        animationTimeline:newAnimationTimeline
+        animationTimeline: newAnimationTimeline
       });
     }
 
@@ -113,7 +113,7 @@ const WithClapAnimation = (WrappedComponent) => {
   return WithClapAnimation;
 }
 
-function MediumClip({  animationTimeline }) {
+function MediumClip({ animationTimeline }) {
   const [clap, setClap] = useState(initialValue);
   const { count, countTotal, isClicked } = clap;
 
